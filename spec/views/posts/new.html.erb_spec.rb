@@ -5,7 +5,6 @@ RSpec.describe "posts/new", type: :view do
     assign(:post, Post.new(
       :title => "MyString",
       :body => "MyText",
-      :slug => "MyString"
     ))
   end
 
@@ -18,7 +17,6 @@ RSpec.describe "posts/new", type: :view do
 
       assert_select "textarea#post_body[name=?]", "post[body]"
 
-      assert_select "input#post_slug[name=?]", "post[slug]"
     end
   end
 end

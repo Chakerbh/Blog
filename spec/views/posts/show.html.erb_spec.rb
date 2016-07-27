@@ -1,11 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe "posts/show", type: :view do
+
+  it "renders to markdown" do
+    @post = assign(:post, Post.create!(
+      :title => "Title",
+      :body => "# This is markdown",
+    ))
+    render 
+    expect(rendered).to match(/Title/)
+    expect(rendered).to match(/<h1>This is markdown<\/h1>/)
+  end
+
   before(:each) do
     @post = assign(:post, Post.create!(
       :title => "Title",
       :body => "MyText",
-      :slug => "Slug"
     ))
   end
 
@@ -13,6 +23,6 @@ RSpec.describe "posts/show", type: :view do
     render
     expect(rendered).to match(/Title/)
     expect(rendered).to match(/MyText/)
-    expect(rendered).to match(/Slug/)
   end
+
 end
