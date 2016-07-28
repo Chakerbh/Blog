@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'rspec/rails'
+require 'devise'
+
 
 RSpec.describe "posts/new", type: :view do
   before(:each) do

@@ -23,4 +23,11 @@ module ApplicationHelper
     markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
     markdown_to_html.render(text).html_safe
   end
+  module ControllerHelpers
+    extend ActiveSupport::Concern
+
+    included do
+      include Devise::Test::ControllerHelpers
+    end
+  end
 end
