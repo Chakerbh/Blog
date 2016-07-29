@@ -23,10 +23,8 @@ Post.create(
   id: 2, 
   title: "Second Post", 
   body: 
-  %Q{
-** Markdown header **
-* My first post *
-My second post *
-My third post 
+  %Q{#H1 
+##H2
+  **bold**
   }
 )
