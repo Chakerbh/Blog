@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p id='title'> <%= @post.title %> </p>
-<p id="time-ago"> <%= time_ago_in_words @post.created_at %> ago.</p>
+<p id="time-ago"> <%= time_ago_in_words @post.created_at %> ago.
+
+<% if user_signed_in? then %>
+  | viewed <%= @post.view_count %>
+<% end %>
+</p>
 <p>
   <%= markdown(@post.body) %>
 </p>

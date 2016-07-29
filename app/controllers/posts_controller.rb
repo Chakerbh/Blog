@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    view_count = @post.view_count
+    @post.update_attribute(:view_count , view_count+1 )
   end
 
   # GET /posts/new
