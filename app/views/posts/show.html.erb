@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<p id='title'> <%= @post.title %> </p>
+<p id="time-ago"> <%= time_ago_in_words @post.created_at %> ago.</p>
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
   <%= markdown(@post.body) %>
 </p>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if user_signed_in? then %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>

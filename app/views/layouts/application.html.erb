@@ -3,15 +3,37 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Work+Sans' %>
+  <%= stylesheet_link_tag 'application', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css' %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrapper">
+
+
+
+    <div id="header">
+      <p id='blog-title'>Chaker Benhamed</p>
+      <p>
+      <%= link_to 'Home', root_path %>
+      | <a href="http://twitter.com/chakerbenhamed"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      | <a href="http://github.com/chakerbh"><i class="fa fa-github" aria-hidden="true"></i></a>
+      </p> 
+    </div>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
 <%= yield %>
+  </div>
+<footer>
+
+  <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://twitter.com/chakerbenhamed">me</a></p>
+
+
+ </footer>
 
 </body>
 </html>
