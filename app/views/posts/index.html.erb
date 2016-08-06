@@ -1,15 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 
 <div class="posts">
 
-  <% @posts.each do |post| %>
+  <% @published.each do |post| %>
     <div class="post">
 
     <p class="title"> <%= link_to post.title, post , class: 'post-link'%> </p>
     <p id="time-ago"> <%= time_ago_in_words post.created_at %> ago.</p>
 
     </div>
+  <% end %>
+  <br>
+  
+  <% if user_signed_in? then %> 
+
+    <% @drafts.each do |draft| %>
+      <div class="post">
+
+        <p class="title"> <%= link_to draft.title, draft , class: 'post-link'%> </p>
+        <p id="time-ago"> <%= time_ago_in_words draft.created_at %> ago.</p>
+
+      </div>
+    <% end %>
   <% end %>
   <br>
 

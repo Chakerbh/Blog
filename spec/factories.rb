@@ -11,5 +11,6 @@ FactoryGirl.define do
     body "Post body"
     sequence(:slug) { |n| "Post title #{n}" }
     view_count 0
+    draft false
   end
 end
