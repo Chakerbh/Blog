@@ -10,8 +10,7 @@
     </div>
   <% end %>
   <br>
-  
-  <% if user_signed_in? then %> 
+  <% if user_signed_in? then %>
 
     <% @drafts.each do |draft| %>
       <div class="post">
@@ -26,6 +25,7 @@
 
 </div>
 
-<% if user_signed_in? then %> 
+
+<% if user_signed_in? then %>
   <%= link_to 'New Post', new_post_path %>
 <% end %>

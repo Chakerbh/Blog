@@ -15,7 +15,7 @@ class PostsController < ApplicationController
      unless user_signed_in? then
       view_count = @post.view_count
       @post.update_attribute(:view_count , view_count+1 )
-    end
+     end
   end
 
   # GET /posts/new

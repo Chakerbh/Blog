@@ -27,3 +27,42 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<% if Rails.application.secrets.imgur_api_key%>
+
+<input type="file"  id="image_imgur" value="">
+<button id="upload_image_button" >Add image</button>
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function(){
+
+  function add_image_to_post(data){
+    var post = $("#post_body");
+    image_url = "![Loading Image](" + data.data.link + ")";
+    post.val(post.val() + image_url)
+
+  }
+
+  function UploadImage(){
+    var form = new FormData();
+    form.append("image", $("#image_imgur")[0].files[0]);
+
+    $.ajax({ 
+      url: 'https://api.imgur.com/3/image',
+      headers: {
+        'Authorization': 'Client-ID <%= Rails.application.secrets.imgur_api_key %>'
+      },
+      type: 'POST',
+      data: form,
+      success: add_image_to_post,
+      cache: false,
+      contentType: false,
+      processData: false
+    });
+  }
+  $("#upload_image_button").click(UploadImage);
+
+});
+</script>
+
+<% end %>
