@@ -1,5 +1,6 @@
 <p id='title'> <%= @post.title %> </p>
 <p id="time-ago"> <%= time_ago_in_words @post.created_at %> ago.
+  <%= social_share_button_tag(@post.title) %>
 
 <% if user_signed_in? then %>
   | viewed <%= @post.view_count %>
